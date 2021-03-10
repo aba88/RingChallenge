@@ -11,9 +11,22 @@ function App(){
 
   //function to load more posts based on last post id in array
   const loadMore = () => {
-    const moreURL = `${redditTopJSON}&after=${posts[posts.length-1].data.name}`
+    let moreURL;
+    if(posts.length > 0){
+      moreURL = `${redditTopJSON}&after=${posts[posts.length-1].data.name}`
+    }else{
+      moreURL = redditTopJSON;
+    }
+    
     getAPI(moreURL);
   }
+
+   //function to dismiss all posts
+   const dismissAll = () => {
+    setPosts([]);
+    let load = 'Load more' 
+  }
+    
 
   //fetching API and combining current + new posts arrays
   const getAPI = async (url) => {
@@ -28,7 +41,8 @@ function App(){
   //function to delete post -- takes clicked post id and filters it out of array
   const deleteElement = (id) => {
     let filterPosts = posts.filter(el => el.data.id !== id);
-    setPosts(filterPosts)
+    setPosts(filterPosts);
+    
   }
 
 
@@ -49,7 +63,7 @@ function App(){
 
 
 {posts.map(post => (
-  <Post 
+  <Post  
   title={post.data.title}
   id={post.data.id}
   key={post.data.id}
@@ -61,11 +75,12 @@ function App(){
   deleteElement={deleteElement}
   post={post}
   />
-  
 ))}
+  
 
 
 <button className="button" onClick={loadMore}>Load more</button>
+<button className="button" onClick={dismissAll}>Dismiss all</button>
 
     </div>
   )
