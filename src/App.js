@@ -5,16 +5,17 @@ import './App.css'
 
 function App(){
 
+  //calling API and setting posts array/state
   const redditTopJSON = 'https://www.reddit.com/top.json?limit=2';
   const [posts, setPosts] = useState([]);
-  // const [isRead, setRead] = useState(true);
 
+  //function to load more posts based on last post id in array
   const loadMore = () => {
     const moreURL = `${redditTopJSON}&after=${posts[posts.length-1].data.name}`
     getAPI(moreURL);
   }
 
-
+  //fetching API and combining current + new posts arrays
   const getAPI = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
@@ -24,14 +25,14 @@ function App(){
   }
   
   
-
+  //function to delete post -- takes clicked post id and filters it out of array
   const deleteElement = (id) => {
-    console.log(id)
     let filterPosts = posts.filter(el => el.data.id !== id);
     setPosts(filterPosts)
   }
 
 
+  //calling get API function
   useEffect(() => {
     getAPI(redditTopJSON);
   },[]);
@@ -41,7 +42,10 @@ function App(){
   return (
     <div className="app">
 
-{/* {deleteElement} */}
+
+<div>
+  <header>Reddit Top Posts</header>
+</div>
 
 
 {posts.map(post => (

@@ -3,25 +3,25 @@ import React,{useState} from 'react';
 
 const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteElement}) => {
     
-    const [isRead, setRead] = useState(true);
+    const [isRead, setRead] = useState(false);
     
     const markAsRead = () => {
-        setRead(false)
+        setRead(true)
       }
 
     return(
 
 
 <div className="post" onClick={markAsRead} >
-<div className={isRead ? 'blueCircle' : ''}></div>
+{/* className="post" */}
 
-
-    <div className="postSubcontainer">
+        <div className={isRead ? 'readIndicator' : ''}>
+<div className="postSubcontainer">
 
     <a href={fullImage} target="_blank" rel="noreferrer"><img src={image} alt=""/></a>
     <div className="rightContainer">
+    {/* <div className={isRead ? 'readIndicator' : ''}></div> */}
     <h5>{title}</h5>
-    
     <p><strong>Author: </strong> {author}</p>
     <p><strong>Created on:</strong> {createdOn}</p>
     <p><strong>Comments:</strong> {comments}</p>
@@ -31,9 +31,12 @@ const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteE
     
 
     </div>
+
+        </div>
+    
     
 </div>
-        
+
 
     )
     
