@@ -1,12 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 
-const post = ({title, identifier, createdOn, image, fullImage, author, comments, postStatus, markAsRead, deleteElement, post}) => {
+const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteElement}) => {
+    
+    const [isRead, setRead] = useState(true);
+    
+    const markAsRead = () => {
+        setRead(false)
+      }
+
     return(
 
 
 <div className="post" onClick={markAsRead} >
-<div className={postStatus ? 'blueCircle' : ''}></div>
+<div className={isRead ? 'blueCircle' : ''}></div>
 
 
     <div className="postSubcontainer">
@@ -18,8 +25,8 @@ const post = ({title, identifier, createdOn, image, fullImage, author, comments,
     <p><strong>Author: </strong> {author}</p>
     <p><strong>Created on:</strong> {createdOn}</p>
     <p><strong>Comments:</strong> {comments}</p>
-    {/* <p>ID: {identifier}</p>*/
-    <p onClick={deleteElement}>delete element</p> }
+    {/* <p>ID: {id}</p> */}
+    <p onClick={() => deleteElement(id)}>delete element</p>
     </div>
     
 
@@ -32,4 +39,4 @@ const post = ({title, identifier, createdOn, image, fullImage, author, comments,
     
 }
 
-export default post;
+export default Post;

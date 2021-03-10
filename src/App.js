@@ -5,29 +5,35 @@ import './App.css'
 
 function App(){
 
-  const redditTopJSON = 'https://www.reddit.com/top.json?limit=50';
+  const redditTopJSON = 'https://www.reddit.com/top.json?limit=2';
   const [posts, setPosts] = useState([]);
-  const [isRead, setRead] = useState(true)
+  // const [isRead, setRead] = useState(true);
 
-  const getAPI = async () => {
-  const response = await fetch(redditTopJSON);
+  const loadMore = () => {
+    const moreURL = `${redditTopJSON}&after=${posts[posts.length-1].data.name}`
+    getAPI(moreURL);
+  }
+
+
+  const getAPI = async (url) => {
+  const response = await fetch(url);
   const data = await response.json();
   const children = await data.data.children
-  setPosts(children)
-  console.log('---------->> ' + children[0].data.id)
+  // setPosts(children)
+  setPosts((prevState)=>[...prevState,...children])
   }
   
-  const markAsRead = () => {
-    setRead(false)
-  }
+  
 
-  const deleteElement = () => {
-    setPosts(posts.filter(el => el.data.id !== post.data.id));
+  const deleteElement = (id) => {
+    console.log(id)
+    let filterPosts = posts.filter(el => el.data.id !== id);
+    setPosts(filterPosts)
   }
 
 
   useEffect(() => {
-    getAPI();
+    getAPI(redditTopJSON);
   },[]);
 
 
@@ -35,14 +41,13 @@ function App(){
   return (
     <div className="app">
 
-{deleteElement}
+{/* {deleteElement} */}
 
 
 {posts.map(post => (
   <Post 
-  postStatus={isRead}
-  markAsRead={markAsRead}
   title={post.data.title}
+  id={post.data.id}
   key={post.data.id}
   author={post.data.author}
   createdOn={moment.unix(post.data.created_utc).fromNow()} 
@@ -53,7 +58,10 @@ function App(){
   post={post}
   />
   
-))};
+))}
+
+
+<button className="button" onClick={loadMore}>Load more</button>
 
     </div>
   )
