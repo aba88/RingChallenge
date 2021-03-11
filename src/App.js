@@ -45,7 +45,7 @@ function App(){
   const deleteElement = (id) => {
     let filterPosts = posts.filter(el => el.data.id !== id);
     setPosts(filterPosts);
-    if(selectedPost[0].data.id == id){
+    if(selectedPost[0].data.id === id){
       setSelectedPost([])
     }
    
@@ -53,7 +53,7 @@ function App(){
 
   //function to select post and display in detail view
   const viewDetailView = (id) => {
-    let filterPosts = posts.filter(el => el.data.id == id);
+    let filterPosts = posts.filter(el => el.data.id === id);
     setSelectedPost(filterPosts);
     localStorage.setItem('selectedPost', JSON.stringify(filterPosts));
   }
@@ -104,7 +104,7 @@ function App(){
   </div>
 
 
-  {selectedPost.length == 0 ? '' : <DetailView 
+  {selectedPost.length === 0 ? '' : <DetailView 
 title={selectedPost[0].data.title}
 id={selectedPost[0].data.id}
 author={selectedPost[0].data.author}

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 
 const DetailView = ({title, createdOn, image, fullImage, author, comments,}) => {
