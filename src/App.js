@@ -14,6 +14,7 @@ function App(){
 
 
   //function to load more posts based on last post id in array
+  //if 'posts' array is empty, relad URL in redditTopJSON
   const loadMore = () => {
     let moreURL;
     if(posts.length > 0){
@@ -29,7 +30,7 @@ function App(){
    const dismissAll = () => {
     
     setAnimation(true);
-    
+      //wait until animation finishes to delete post and detail view arrays
         setTimeout(() => {
           setPosts([]);
           setSelectedPost([]);
@@ -88,7 +89,6 @@ function App(){
 </div>
 
 
-{/* <div className="postContainer"> */}
 <div className={`postContainer ${animate ? 'animationTwo' : ''}`}>
 <div className="postsList">
 

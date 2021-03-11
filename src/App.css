@@ -86,7 +86,6 @@ align-items: center;
   background: #FFFFFF;
   border-radius: 5px;
   display:flex;
-  /* justify-content: flex-start; */
   width: 50%;
   height: 100%;
   margin-left: 8%;
@@ -111,11 +110,11 @@ align-items: center;
   text-decoration: none;
   margin:5%;
 }
-.detailView h4{
+.detailView h5{
   font-size: 2rem;
 }
 .detailView p{
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 .detailView img{
   width: 90%;
