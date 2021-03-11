@@ -2,8 +2,25 @@
 .app{
   min-height: 100vh;
   margin: 0 auto;
-  justify-content: center;
-align-items: center;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex;
+  align-items: flex-start; */
+}
+.postContainer{
+  display: flex;
+}
+.postsList{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex;
+  align-items: flex-start;
+  width: 30%;
+}
+.detailView.post{
+  justify-content: flex-start;
+  width: 60%;
+  margin-left: 3%;
 }
 .readIndicator{
   opacity:0.5;
@@ -25,7 +42,7 @@ align-items: center;
 
 .post{
   background: #FFFFFF;
-  width: 390px;
+  width: 100%;
   min-height: 35vh;
   border-radius: 5px;
   display: flex;
@@ -50,7 +67,6 @@ align-items: center;
 .post h5{
   margin: 2vh;
   text-align: left;
-  /* display: inline-flex; */
   text-decoration: none;
 }
 .post p{
