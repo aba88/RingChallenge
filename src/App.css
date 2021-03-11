@@ -163,6 +163,9 @@ p.deleteElement{
    width:0%;
    height: 0%;
   }
+  .redditLogo{
+    display: none;
+  }
 }
 
 /* ----------ANIMATION 1----------- */

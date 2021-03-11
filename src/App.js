@@ -84,7 +84,7 @@ function App(){
 
 
 <div>
-  <header>Reddit Top Posts</header>
+  <header><img className="redditLogo" src="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png" alt=""/>&nbsp;Reddit Top Posts</header>
 </div>
 
 
