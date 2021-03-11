@@ -1,11 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+/* general styles */
 .app{
   min-height: 100vh;
   margin: 0 auto;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex;
-  align-items: flex-start; */
+}
+body{
+  background-image: linear-gradient(120deg,#a79458,#fda085);
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+/* header styles */
+header{
+  font-size: 3.5rem;
+}
+header {
+min-height: 20vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* post styles */
+.scroll{
+  height: 70vh;
+  overflow: scroll;
+}
+.post{
+  background: #FFFFFF;
+  /* width: 100%; */
+  min-width: 60vh;
+  min-height: 25vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+.postSubcontainer{
+  display: flex;
+  flex-direction:row;
+}
+.postSubcontainer img{
+  width: 50%;
+  height: auto;
+}
+.rightContainer{
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-left: 5px;
+  text-decoration: none;
 }
 .postContainer{
   display: flex;
@@ -17,80 +62,76 @@
   align-items: flex-start;
   width: 30%;
 }
-.detailView.post{
-  justify-content: flex-start;
-  width: 60%;
-  margin-left: 3%;
-}
-.readIndicator{
-  opacity:0.5;
-}
-body{
-  background-image: linear-gradient(120deg,#a79458,#fda085);
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-}
-header{
-  font-size: 3.5rem;
-}
-header {
-min-height: 20vh;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.post{
-  background: #FFFFFF;
-  width: 100%;
-  min-height: 35vh;
-  border-radius: 5px;
-  display: flex;
-  flex-direction:column;
-  justify-content: space-around;
-  margin-left: 15px;
-  margin-bottom: 5px;
-}
-
-.postSubcontainer{
-  /* justify-content: space-evenly; */
-  display: flex;
-  flex-direction:row;
-}
-
-.rightContainer{
-  align-items: flex-start;
-  justify-content: space-evenly;
-  margin-left: 5px;
-  text-decoration: none;
-}
 .post h5{
-  margin: 2vh;
+  margin-left: 0.8vw;
+  margin-top: 1.8vw;
   text-align: left;
   text-decoration: none;
 }
 .post p{
-  margin: 2vh;
+  margin-left: 0.8vw;
   text-align: left;
   font-size: 12px;
   text-decoration: none;
 }
 .post img{
-  float: left;
   background-size: contain;
-  padding-left: 5px;
-  vertical-align: middle;
+  margin-left: 0.8vw;
   text-decoration: none;
-  margin-top:2vh;
-  margin-bottom:2vh;
+  margin-top:2vw;
+}
+
+/* Detail Post view styles */
+.detailView{
+  background: #FFFFFF;
+  border-radius: 5px;
+  display:flex;
+  /* justify-content: flex-start; */
+  width: 50%;
+  height: 100%;
+  margin-left: 8%;
+  font-size: 2em;
+}
+.postSubcontainer_detailView{
+  display: flex;
+  flex-direction:row;
+  align-items: flex-start;
+}
+.leftContainer_detailView{
+  align-items: flex-start;
+  justify-content:start;
+  /* margin-left: 5px; */
+  text-decoration: none;
+}
+.rightContainer_detailView{
+  align-items: flex-start;
+  justify-content:start;
+  /* margin-left: 5px; */
+  text-decoration: none;
+  margin:5%;
+}
+.detailView h4{
+  font-size: 2rem;
+}
+.detailView p{
+  font-size: 1.5rem;
+}
+.detailView img{
+  width: 90%;
+  margin:5%;
+  
 }
 
 
+
+/* Additional styles */
+.readIndicator{
+  opacity:0.5;
+}
 .red{
   color: red;
   font-size: 50px;;
 }
-
 .button{
   background:#ff6747;
   color: #fff;
@@ -98,7 +139,6 @@ align-items: center;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
-  
   margin-left: 15px;
   margin-top:30px;
   margin-bottom:30px;
@@ -106,24 +146,25 @@ align-items: center;
 
 .deleteElement{
   border:1px solid red;
+  margin-bottom: 1vw;
 }
 p.deleteElement{
-  width: 120px;
+  width: 28%;
   text-align: center;
   cursor: pointer;
 }
 
-/* --------------------- */
+/* Media query */
 
-.box {
-  height: 90px;
-  width: 90px;
-
-  left: 0px;
-  top: 0px;
-
-  /* position: absolute; */
+@media only screen and (max-width: 700px) {
+  .detailView {
+   display: none;
+   width:0%;
+   height: 0%;
+  }
 }
+
+/* ----------ANIMATION----------- */
 
 .animation {
     -webkit-animation: fade-out 1s ease-out both;
@@ -155,17 +196,5 @@ p.deleteElement{
   }
 }
 
-
-/* @keyframes sampleanimation {
-  0% {
-    left: 0px;
-    top: 0px;
-    opacity: 1;
-  }
-  100% {
-    left: 0px;
-    opacity: 0;
-  }
-} */
 
 /* --------------------- */
