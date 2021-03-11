@@ -11,12 +11,11 @@ body{
 }
 
 /* header styles */
-header{
-  font-size: 3.5rem;
-}
 header {
+font-size: 3.5rem;
 min-height: 20vh;
 display: flex;
+color: #fff;
 justify-content: center;
 align-items: center;
 }
@@ -28,6 +27,7 @@ align-items: center;
 }
 .post{
   background: #FFFFFF;
+  cursor: pointer;
   /* width: 100%; */
   min-width: 60vh;
   min-height: 25vh;
@@ -91,6 +91,7 @@ align-items: center;
   height: 100%;
   margin-left: 8%;
   font-size: 2em;
+  box-shadow:3px 3px 30px 5px #ff6747;
 }
 .postSubcontainer_detailView{
   display: flex;
