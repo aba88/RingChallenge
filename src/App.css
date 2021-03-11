@@ -165,8 +165,7 @@ p.deleteElement{
   }
 }
 
-/* ----------ANIMATION----------- */
-
+/* ----------ANIMATION 1----------- */
 .animation {
     -webkit-animation: fade-out 1s ease-out both;
     animation: fade-out 1s ease-out both;
@@ -196,6 +195,28 @@ p.deleteElement{
     height: 0%;
   }
 }
+/* --------------------- */
 
+/* ----------ANIMATION 2----------- */
+.animationTwo {
+  -webkit-animation: fade-out-still-visible 1s ease-out both;
+  animation: fade-out-still-visible 1s ease-out both;
+}
 
+@-webkit-keyframes fade-out-still-visible {
+0% {
+  opacity: 1;
+}
+100% {
+  opacity: 0;
+}
+}
+@keyframes fade-out-still-visible {
+0% {
+  opacity: 1;
+}
+100% {
+  opacity: 0;
+}
+}
 /* --------------------- */
