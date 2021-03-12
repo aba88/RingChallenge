@@ -1,13 +1,14 @@
 import React,{useState} from 'react';
 
 
-const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteElement}) => {
+const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteElement,viewDetailView}) => {
     
     const [isRead, setRead] = useState(false);
     const [animate, setAnimation] = useState(false);
 
-    const markAsRead = () => {
+    const markAsRead = (id) => {
         setRead(true)
+        viewDetailView(id)
       }
 
     const animateAndDelete = (id) => {
@@ -21,10 +22,10 @@ const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteE
     return(
 
 
-<div className={`post ${animate ? 'box animation' : ''}`} onClick={markAsRead} >
+<div className={`post ${animate ? 'box animation' : ''}`} >
 
 
-    <div className={isRead ? 'readIndicator' : ''}>
+    <div className={isRead ? 'readIndicator' : ''} onClick={() => markAsRead(id)}>
         <div className="postSubcontainer">
         <a href={fullImage} target="_blank" rel="noreferrer"><img src={image} alt=""/></a>
             <div className="rightContainer">
@@ -33,10 +34,11 @@ const Post = ({title, id, createdOn, image, fullImage, author, comments, deleteE
             <p><strong>Created on:</strong> {createdOn}</p>
             <p><strong>Comments:</strong> {comments}</p>
             {/* <p>ID: {id}</p> */}
-            <p className="deleteElement" onClick={() => animateAndDelete(id)}>Dismiss element</p>
+            
             </div>
         </div>
     </div>
+    <p className="deleteElement" onClick={() => animateAndDelete(id)}>Dismiss element</p>
     
     
 </div>
