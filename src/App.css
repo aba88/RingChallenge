@@ -28,8 +28,7 @@ align-items: center;
 .post{
   background: #FFFFFF;
   cursor: pointer;
-  /* width: 100%; */
-  min-width: 60vh;
+  min-width: 40vh;
   min-height: 25vh;
   border-radius: 5px;
   display: flex;
@@ -147,6 +146,7 @@ align-items: center;
 .deleteElement{
   border:1px solid red;
   margin-bottom: 1vw;
+  border-radius: 8px;
 }
 p.deleteElement{
   width: 28%;
