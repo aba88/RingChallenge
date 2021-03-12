@@ -2,11 +2,11 @@
 
 App can be viewed working [here](https://eager-elion-34412e.netlify.app/).
 
-Using `async` to call [API](https://www.reddit.com/top.json)
+Using `async` and `fetch` to call [API](https://www.reddit.com/top.json)
 
-Using 10 posts at a time (can limit this to 50 only and remove the load more button if necessary)
+Using 10 posts at a time with 'load more' capability.
 
-Consuming UNIX date from API and using `moment.js’` relative date
+Consuming UNIX date from API and using relative date from `moment.js`.
 
 Using 0.5 `opacity` to mark posts as read
 
